@@ -70,4 +70,80 @@ Menampilkan Total Harga: python if harga_tiket > 0: print(f"Total harga yang har
 Jika harga tiket valid (harga_tiket > 0), program akan mencetak total harga yang harus dibayar, diformat hingga dua desimal (contoh: Rp35000.00).
 Dengan struktur ini, program memastikan harga tiket dihitung dengan benar sesuai tipe tiket dan status keanggotaan pengguna.
 ## 2. Kalkulator sederhana
+Program ini adalah program Kalkulator sederhana yang berfungsi untuk menghitung dua angka sesuai dengan operasi hitung yang dipilih.
+## Flowchart dari Kalkulator Sederhana
 ![ticketflow 1](https://github.com/user-attachments/assets/eeb4d88c-26df-472a-bd8c-bc3c6265a956)
+## Program akan meminta kita untuk memasukkan 3 angka untuk dibandingkan :
+```Python
+Masukkan angka pertama: 1000
+Masukkan angka kedua: 100
+Masukkan operator (+, -, *, /): *
+Hasil: 100000.0
+```
+## Penjelasan Kode
+```Python
+def kalkulator():
+  """Fungsi ini membuat kalkulator sederhana"""
+
+  # Meminta input dari pengguna
+  angka1 = float(input("Masukkan angka pertama: "))
+  angka2 = float(input("Masukkan angka kedua: "))
+  operator = input("Masukkan operator (+, -, *, /): ")
+
+  # Melakukan operasi berdasarkan operator yang dipilih
+  if operator == '+':
+    hasil = angka1 + angka2
+  elif operator == '-':
+    hasil = angka1 - angka2
+  elif operator == '*':
+    hasil = angka1 * angka2
+  elif operator == '/':
+    if angka2 == 0:
+      print("Tidak dapat membagi dengan nol")
+    else:
+      hasil = angka1 / angka2
+  else:
+    print("Operator tidak valid")
+
+  # Menampilkan hasil
+  if 'hasil' in locals():
+    print("Hasil:", hasil)
+
+kalkulator()
+```
+Kode program di atas adalah implementasi sederhana dari kalkulator yang dapat melakukan operasi dasar (penjumlahan, pengurangan, perkalian, dan pembagian) berdasarkan input pengguna. Mari kita bahas langkah-langkah kode ini:
+
+## 1. Fungsi kalkulator
+python def kalkulator(angka1, angka2, operator): if operator == "+": return angka1 + angka2 elif operator == "-": return angka1 - angka2 elif operator == "*": return angka1 * angka2 elif operator == "/": if angka2 != 0: return angka1 / angka2 else: return "Kesalahan: Pembagian dengan nol tidak diperbolehkan" else: return "Operator tidak valid"
+
+Fungsi kalkulator mengambil tiga parameter:
+
+angka1: bilangan pertama (float),
+angka2: bilangan kedua (float),
+operator: operasi yang ingin dilakukan (+, -, *, atau /).
+Proses:
+
+Fungsi memeriksa nilai operator dan menjalankan operasi yang sesuai.
+Untuk pembagian, ada pengecekan tambahan untuk memastikan angka2 tidak nol, agar tidak terjadi error dalam perhitungan.
+Jika operator tidak valid, fungsi mengembalikan pesan "Operator tidak valid".
+## 2. Meminta Input dari Pengguna
+python try: angka1 = float(input("Masukkan angka pertama: ")) operator = input("Masukkan operator (+, -, *, /): ") angka2 = float(input("Masukkan angka kedua: "))
+
+Program meminta pengguna untuk memasukkan angka1, operator, dan angka2.
+angka1 dan angka2 dikonversi ke float agar program bisa menerima angka desimal.
+Error Handling:
+
+Jika input tidak valid (misalnya pengguna memasukkan huruf untuk angka), blok try-except akan menangkap ValueError dan menampilkan pesan "Input tidak valid! Pastikan Anda memasukkan angka."
+## 3. Menghitung Hasil dan Menampilkan
+python hasil = kalkulator(angka1, angka2, operator) print(f"Hasil: {hasil}")
+
+Setelah menerima input, program memanggil fungsi kalkulator dengan input yang diberikan dan menyimpan hasilnya dalam variabel hasil.
+Program kemudian mencetak hasil.
+## Contoh Output:
+Input: angka pertama = 10, operator = +, angka kedua = 5
+
+Output: Hasil: 15.0
+Input: angka pertama = 10, operator = /, angka kedua = 0
+
+Output: Kesalahan: Pembagian dengan nol tidak diperbolehkan
+Program ini siap digunakan untuk operasi matematika dasar dengan penanganan error yang baik.
